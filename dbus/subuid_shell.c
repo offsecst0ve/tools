@@ -88,7 +88,10 @@ int get_subuid(char* output, int max_length) {
   char* path = "/etc/subuid";
   int length = read_file(path, &buffer[0], sizeof(buffer));
   if (length == -1)
+  {
+    dprintf("if (length == -1)");
     return -1;
+  }
 
   int real_uid = getuid();
   struct passwd *u = getpwuid(real_uid);
@@ -98,14 +101,23 @@ int get_subuid(char* output, int max_length) {
   int needle_length = strlen(needle);
   char* found = memmem(&buffer[0], length, needle, needle_length);
   if (found == NULL)
+  {
+    dprintf("if (found == NULL)");
     return -1;
+  }
 
   int i;
   for (i = 0; found[needle_length + i] != ':'; i++) {
     if (i >= max_length)
+    {
+      dprintf(" if (i >= max_length)");
       return -1;
+    }
     if ((found - &buffer[0]) + needle_length + i >= length)
+    {
+      dprintf(" if ((found - &buffer[0]) + needle_length + i >= length)");
       return -1;
+    }
     output[i] = found[needle_length + i];
   }
 
