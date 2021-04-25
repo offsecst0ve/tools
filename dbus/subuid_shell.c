@@ -237,9 +237,10 @@ int main(int argc, char** argv) {
   dprintf("[~] done, namespace sandbox set up\n");
 
   dprintf("[.] mapping subordinate ids\n");
-  char subuid[64];
-  char subgid[64];
+  char subuid[64] = "165536";
+  char subgid[64] = "165536";
 
+  /*
   if (get_subuid(&subuid[0], sizeof(subuid))) {
     dprintf("[-] couldn't find subuid map in /etc/subuid\n");
     exit(EXIT_FAILURE);
@@ -249,6 +250,7 @@ int main(int argc, char** argv) {
     dprintf("[-] couldn't find subgid map in /etc/subgid\n");
     exit(EXIT_FAILURE);
   }
+  */
 
   dprintf("[.] subuid: %s\n", subuid);
   dprintf("[.] subgid: %s\n", subgid);
