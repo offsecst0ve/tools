@@ -102,6 +102,8 @@ int get_subuid(char* output, int max_length) {
   char* found = memmem(&buffer[0], length, needle, needle_length);
   if (found == NULL)
   {
+    dprintf("%s \n", needle);
+    dprintf("%s \n", &buffer[0]);
     dprintf("if (found == NULL)");
     return -1;
   }
